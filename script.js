@@ -25,7 +25,27 @@ require(["esri/config",
           style: "solid"
         };
 
+    var template = {
+  title: "{Name}",
+  content: [{
+    type: "fields",
+    fieldInfos: [{
+      fieldName: "Name",
+      label: "Name:",
+      visible: true
+    }, {fieldName: "To_",
+      label: "To:",
+      visible: true
+    }, {fieldName: "From_",
+      label: "From:",
+      visible: true
+       }, {fieldName: "Year",
+      label: "Year:",
+      visible: true
     
+    }]
+  }]
+}
 
         const transRenderer = {
           type: "unique-value", // autocasts as new UniqueValueRenderer()
@@ -69,18 +89,20 @@ require(["esri/config",
           renderer: transRenderer,
           title: "Transactions",
           minScale: 0,
-          maxScale: 0
+          maxScale: 0,
+          popupTemplate: template
         });
 
         const StadiumsLayer = new FeatureLayer({
           url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/map_(12)/FeatureServer",
-          renderer: stadiumsRenderer
+          renderer: stadiumsRenderer,
+          popupTemplate: template
         });
 
         // Add the layer to the map
         const map = new Map({
           layers: [TransactionsLayer, StadiumsLayer],
-          basemap: "arcgis-dark-gray"
+          basemap: "arcgis-dark-gray"          
         });
 
         const view = new MapView({
@@ -102,3 +124,4 @@ require(["esri/config",
 
         view.ui.add(legend, "bottom-left");
       });
+
