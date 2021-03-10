@@ -7,12 +7,7 @@ require(["esri/config",
         Legend
       ) {
         esriConfig.apiKey = "AAPKadbb47a8f4024f8694017868bb5f8514m-BINeDp-vV1s7yL8zwJeUAP-PbhOik8FZfNUXBo_uzR_cpQj_uun6RO5a5YScF7";
-        /******************************************************************
-         *
-         * Define symbols for each unique type. One each for freeways,
-         * highways, and other major roads
-         *
-         ******************************************************************/
+       
 
         // Symbol for freeways
         const acquisitionSym = {
